@@ -1,0 +1,27 @@
+{% extends 'miapp/base.html' %}
+{% block content %}
+<div class="container">
+<div class = "card">
+    <div class = "card-header">Cambiar Comunicado</div>
+    <div class = "card-body">
+        <h4 class = "card-title">Informacion</h4>
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {% for campo in formulario %}
+                <div class = "mb-3">
+                    <label for = "" class = "form-label">{{campo.label}}:</label>
+                    <input
+                    type = "{{ campo.field.widget.input_type }}"
+                    class = "form-control"
+                    placeholder="{{ campo.label }}"
+                    value="{{ campo.value }}"
+                    />
+                </div>
+            
+            {% endfor %}
+            <input name = "" id ="" class="btn btn-success" href = "{% url 'carreras' %}"type="submit" value="Enviar Informacion">
+            </form>
+    </div>
+</div>
+</div>
+{% endblock %}
